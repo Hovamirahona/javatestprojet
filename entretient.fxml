@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EntretienControllers">
+   <Text layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enregistrement des entretiens:" wrappingWidth="208.6708984375" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="30.0" />
+   <TableView fx:id="tableview" layoutX="473.0" layoutY="366.0" prefHeight="534.0" prefWidth="1072.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="200.0">
+      <columns>
+         <TableColumn fx:id="num_entrer" prefWidth="98.0" text="Num Entrer" />
+         <TableColumn fx:id="num_service" prefWidth="94.0" text="Num service" />
+         <TableColumn fx:id="immatriculation" prefWidth="128.0" text="Immatriculation" />
+         <TableColumn fx:id="noms" prefWidth="255.0" text="Nom(s)" />
+         <TableColumn fx:id="date" prefWidth="110.0" text="Date" />
+         <TableColumn prefWidth="100.0">
+            <cellValueFactory>
+                <PropertyValueFactory property="btnSupprimer" />
+            </cellValueFactory>
+            <cellFactory>
+                <fx:factory>
+                    <Button fx:id="supprimerBtn" text="Supprimer" onAction="#supprimerBtnClicked" />
+                </fx:factory>
+            </cellFactory>
+         </TableColumn>
+      </columns>
+   </TableView>
+   <Button layoutX="520.0" layoutY="134.0" mnemonicParsing="false" onAction="#enregistrer_btn" text="Enregistrer" />
+   <Button layoutX="634.0" layoutY="142.0" mnemonicParsing="false" onAction="#modifierBtnClicked" text="Modifier" />
+   <Button layoutX="750.0" layoutY="142.0" mnemonicParsing="false" onAction="#refresh_btn" text="Rafraîchir" />
+   <HBox layoutX="644.0" layoutY="45.0" prefHeight="50.0" prefWidth="343.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
+      <TextField fx:id="search_field" promptText="Recherche:" />
+      <Button fx:id="search_btn" mnemonicParsing="false">
+         <graphic>
+            <!-- Ajoutez ici l'icône de recherche -->
+         </graphic>
+      </Button>
+   </HBox>
+   <VBox layoutX="25.0" layoutY="73.0" prefHeight="585.0" prefWidth="308.0">
+      <Label text="Numéro d'entrer:" />
+      <TextField fx:id="num_entrer_field" />
+      <Label text="Numéro de service:" />
+      <TextField fx:id="num_service_field" />
+      <Label text="Immatriculation de la voiture:" />
+      <TextField fx:id="immatriculation_field" />
+      <Label text="Nom(s) client:" />
+      <TextField fx:id="noms_field" />
+      <Label text="Date d'entretien:" />
+      <DatePicker fx:id="date_field" prefHeight="31.0" prefWidth="309.0" />
+      <Label text="Error" />
+   </VBox>
+</AnchorPane>
